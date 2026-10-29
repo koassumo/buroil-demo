@@ -171,7 +171,7 @@ html.js .reveal.in{opacity:1;transform:none}
 .hero .geo svg{width:18px;height:18px;color:var(--hero-accent)}
 .hero .cta{display:flex;flex-wrap:wrap;gap:var(--s3);margin-bottom:var(--s4)}
 .hero .btn{background:var(--hero-accent);border-color:var(--hero-accent);color:var(--hero-accent-fg)}
-.hero .btn.ghost{background:transparent;color:var(--hero-fg);border-color:var(--hero-line)}
+.hero .btn.ghost{background:var(--hero-bg);color:var(--hero-fg);border-color:var(--hero-line)}
 .hero .note{color:var(--hero-muted);font-size:var(--fs-s)}
 .hero .ph{background:transparent;color:var(--hero-fg);border-color:var(--hero-accent)}
 .hero-art{width:100%;height:auto;color:var(--hero-fg)}
@@ -188,13 +188,11 @@ html.js .reveal.in{opacity:1;transform:none}
 .hero-art .lbl,.hero-art .leg,.hero-art .legi{animation:appear .6s var(--ease) backwards}
 .hero-art .s1{animation-delay:.4s}.hero-art .s2{animation-delay:.7s}.hero-art .s3{animation-delay:1s}
 .hero-art .s4{animation-delay:1.3s}.hero-art .s5{animation-delay:1.6s}.hero-art .s6,.hero-art .legi{animation-delay:1.9s}
-/* Фон первого экрана: сетка и блуждающее пятно света. Положение пятна задаёт final.js через --sx/--sy
+/* Фон первого экрана: сетка, участок которой подсвечивается блуждающим пятном (без свечения фона). Положение пятна задаёт final.js через --sx/--sy
    (само медленно блуждает, тянется к курсору над первым экраном); без JS и при reduced-motion стоит на месте */
-.hero-bg{--sx:78%;--sy:28%;position:absolute;inset:0;z-index:-1;background:
-  radial-gradient(360px circle at var(--sx) var(--sy),color-mix(in srgb,var(--hero-accent) 22%,transparent),transparent 70%),
-  linear-gradient(180deg,var(--hero-bg),var(--hero-bg-2))}
+.hero-bg{--sx:78%;--sy:28%;position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,var(--hero-bg),var(--hero-bg-2))}
 .hero-bg::after{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--hero-line) 1px,transparent 1px),linear-gradient(90deg,var(--hero-line) 1px,transparent 1px);background-size:48px 48px;opacity:.35;-webkit-mask-image:linear-gradient(180deg,transparent,#000 40%,transparent);mask-image:linear-gradient(180deg,transparent,#000 40%,transparent)}
-.hero-bg::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--hero-accent) 1px,transparent 1px),linear-gradient(90deg,var(--hero-accent) 1px,transparent 1px);background-size:48px 48px;opacity:.55;-webkit-mask-image:radial-gradient(260px circle at var(--sx) var(--sy),#000,transparent 100%);mask-image:radial-gradient(260px circle at var(--sx) var(--sy),#000,transparent 100%)}
+.hero-bg::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--hero-accent) 1px,transparent 1px),linear-gradient(90deg,var(--hero-accent) 1px,transparent 1px);background-size:48px 48px;opacity:.7;-webkit-mask-image:radial-gradient(280px circle at var(--sx) var(--sy),#000,transparent 100%);mask-image:radial-gradient(280px circle at var(--sx) var(--sy),#000,transparent 100%)}
 @keyframes flow{to{stroke-dashoffset:-32}}
 @keyframes pulse{0%,100%{opacity:.55;transform:scale(.9)}50%{opacity:1;transform:scale(1.08)}}
 @keyframes draw{to{stroke-dashoffset:0}}
